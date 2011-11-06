@@ -1,0 +1,14 @@
+= Project Template for Authlogic running in Sinatra
+
+A useful project template for when you have a mobile app but need to validate the user credentials on the server.  
+
+You should also SHA256 encrypt the password on the client side before submitting the request, decryption can be enabled on the server side.
+
+Basic Http Auth is also configured and easily enabled.
+
+== Methods
+=== Create a user
+curl http://localhost:9292/users -d "user[email]=a@b.com&user[password]=password&user[password_confirmation]=password"
+
+=== Validate a user login
+curl http://localhost:9292/users/login -d "email=a@b.com&password=password"
