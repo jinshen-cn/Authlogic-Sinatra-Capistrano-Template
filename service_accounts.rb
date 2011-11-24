@@ -97,7 +97,9 @@ class AccountsService < Sinatra::Base
         else
           format({ :status => 1001, :message => 'incorrect username or password' })
         end
-      rescue
+      rescue Exception => e
+        logger.error e.message
+        logger.error e.backtrace.inspect
         format({ :status => 1003, :message => 'general exception' })
       end
     
